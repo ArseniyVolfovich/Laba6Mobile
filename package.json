@@ -1,0 +1,14 @@
+{
+  "name": "racehub-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RaceHub — адаптивное приложение для лабораторной работы № 5",
+  "scripts": {
+    "build": "node scripts/build.cjs"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.51.2"
+  }
+}
