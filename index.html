@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#08090b">
+  <title>RaceHub — Формула 1, сезон 2026</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+    <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M4 14v-3a8 8 0 0 1 16 0v3H9a5 5 0 0 1-5-5"/><path d="M4 14h5v3H6a2 2 0 0 1-2-2zM13 7a5 5 0 0 1 5 5"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 1c5-3 9 3 14 0v10c-5 3-9-3-14 0"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="m3 3 18 18M10 5c.7-.2 1.3-.2 2-.2 6.5 0 10 7.2 10 7.2a17 17 0 0 1-2 3M7 7c-3.3 2-5 5-5 5s3.5 7 10 7a10 10 0 0 0 4-.8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 3v6c0 5-3 8-8 11-5-3-8-6-8-11V5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3 3-3 15 0 18m0-18c3 3 3 15 0 18"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 2 4 3 9 3s9-1 9-3V5M3 12c0 2 4 3 9 3s9-1 9-3"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 1-1.5 1.5-1.5 3m0 3h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+  </svg>
+
+
+  <section class="screen active" id="login">
+    <div class="login-page">
+      <div class="login-brand">
+        <img class="brand-image brand-image--large" src="assets/logotype.png" alt="RaceHub">
+        <div class="login-copy">
+          <span class="eyebrow">FORMULA 1 · СЕЗОН 2026</span>
+          <h1>Скорость.<br>Тактика. История.</h1>
+          <p>Календарь этапов, результаты и положение пилотов — в одном месте.</p>
+        </div>
+      </div>
+      <div class="login-panel">
+        <div class="login-container">
+          <img class="brand-image brand-image--mobile" src="assets/logotype.png" alt="RaceHub">
+          <span class="eyebrow">ДОБРО ПОЖАЛОВАТЬ</span>
+          <h2>Войти в RaceHub</h2>
+          <p class="subtitle">Следите за сезоном Формулы 1</p>
+
+          <form id="loginForm">
+            <label for="email">Электронная почта</label>
+            <div class="input-box">
+              <svg class="icon"><use href="#i-mail"/></svg>
+              <input id="email" type="email" placeholder="example@mail.com" autocomplete="email">
+            </div>
+
+            <label for="password">Пароль</label>
+            <div class="input-box">
+              <svg class="icon"><use href="#i-lock"/></svg>
+              <input id="password" type="password" placeholder="Введите пароль" autocomplete="current-password">
+              <button class="icon-button icon-button--bare" id="showPassword" type="button" aria-label="Показать пароль">
+                <svg class="icon"><use href="#i-eye"/></svg>
+              </button>
+            </div>
+
+            <a class="forgot" href="#">Забыли пароль?</a>
+            <button class="main-button" type="submit">Войти <svg class="icon"><use href="#i-arrow"/></svg></button>
+          </form>
+
+          <button class="guest" type="button" data-open="home">
+            Продолжить как гость <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="agreement">
+            Продолжая, вы соглашаетесь с <a href="#">условиями использования</a>
+            и <a href="#">политикой конфиденциальности</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen dashboard" id="home">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <button class="nav-item active-nav" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></button>
+        <button class="nav-item" type="button" data-open="events"><svg class="icon"><use href="#i-calendar"/></svg><span>События</span></button>
+        <button class="nav-item" type="button" data-open="drivers"><svg class="icon"><use href="#i-helmet"/></svg><span>Пилоты</span></button>
+        <button class="nav-item" type="button" data-open="teams"><svg class="icon"><use href="#i-flag"/></svg><span>Команды</span></button>
+        <button class="nav-item" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Настройки</span></button>
+      </nav>
+      <button class="sidebar-profile" type="button" data-open="profile">
+        <span class="sidebar-avatar">А</span>
+        <span><strong>Арсений</strong><small>Профиль</small></span>
+        <svg class="icon"><use href="#i-chevron"/></svg>
+      </button>
+    </aside>
+
+    <div class="page">
+      <header class="desktop-header">
+        <div><p class="welcome-small">Среда, 30 сентября</p><h1>Сезон 2026</h1></div>
+        <div class="header-actions">
+          <button class="icon-button" type="button" aria-label="Поиск"><svg class="icon"><use href="#i-search"/></svg></button>
+          <button class="icon-button notification" type="button" aria-label="Уведомления">
+            <svg class="icon"><use href="#i-bell"/></svg><span></span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-event">
+          <div class="hero-image" role="img" aria-label="Болид Формулы 1"></div>
+          <div class="hero-overlay">
+            <div class="hero-top">
+              <span class="event-category">ЭТАП 16 ИЗ 23</span>
+              <span class="soon"><i></i> СЛЕДУЮЩАЯ ГОНКА</span>
+            </div>
+            <div class="hero-content">
+              <div class="hero-country"><span>MY</span> Малайзия</div>
+              <h2>Гран-при Бахрейна<br>в Малайзии</h2>
+              <div class="event-meta">
+                <span><svg class="icon"><use href="#i-pin"/></svg>Sepang International Circuit</span>
+                <span><svg class="icon"><use href="#i-calendar"/></svg>4 октября 2026</span>
+                <span><svg class="icon"><use href="#i-clock"/></svg>10:00 · Минск</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="race-strip" aria-label="Обратный отсчёт до гонки">
+          <div><span class="eyebrow">ДО СТАРТА</span><strong id="countdownStatus">Осталось совсем немного</strong></div>
+          <div class="timer" id="countdown" data-start="2026-10-04T10:00:00+03:00">
+            <div><strong data-time="days">00</strong><span>дней</span></div><b>:</b>
+            <div><strong data-time="hours">00</strong><span>часов</span></div><b>:</b>
+            <div><strong data-time="minutes">00</strong><span>минут</span></div><b>:</b>
+            <div><strong data-time="seconds">00</strong><span>секунд</span></div>
+          </div>
+          <button class="secondary-button" type="button" data-open="events">
+            О событии <svg class="icon"><use href="#i-arrow"/></svg>
+          </button>
+        </section>
+
+        <div class="content-grid">
+          <section class="section events-section">
+            <div class="section-title">
+              <div><span class="eyebrow">КАЛЕНДАРЬ</span><h2>Последние и ближайшие этапы</h2></div>
+              <button class="text-link" type="button" data-open="events">
+                Все этапы <svg class="icon"><use href="#i-arrow"/></svg>
+              </button>
+            </div>
+            <div class="events-grid">
+              <article class="event-card event-card--past">
+                <div class="event-card-top"><span class="event-round">ЭТАП 15</span><span class="status status--done">Завершён</span></div>
+                <div class="event-date"><strong>26</strong><span>СЕН</span></div>
+                <div class="event-copy"><span>Азербайджан</span><h3>Гран-при Азербайджана</h3><p>Baku City Circuit</p></div>
+                <div class="winner"><span>ПОБЕДИТЕЛЬ</span><strong>Джордж Расселл</strong><small>Mercedes</small></div>
+              </article>
+              <article class="event-card event-card--next">
+                <div class="event-card-top"><span class="event-round">ЭТАП 16</span><span class="status status--next">Следующий</span></div>
+                <div class="event-date"><strong>04</strong><span>ОКТ</span></div>
+                <div class="event-copy"><span>Малайзия</span><h3>Гран-при Бахрейна в Малайзии</h3><p>Sepang International Circuit</p></div>
+                <div class="race-time"><svg class="icon"><use href="#i-clock"/></svg><strong>10:00</strong><span>по Минску</span></div>
+              </article>
+              <article class="event-card">
+                <div class="event-card-top"><span class="event-round">ЭТАП 17</span><span class="status">Ожидается</span></div>
+                <div class="event-date"><strong>11</strong><span>ОКТ</span></div>
+                <div class="event-copy"><span>Сингапур</span><h3>Гран-при Сингапура</h3><p>Marina Bay Street Circuit</p></div>
+                <div class="race-time"><svg class="icon"><use href="#i-calendar"/></svg><strong>9–11 окт</strong><span>гоночный уикенд</span></div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="section standings-card">
+            <div class="section-title">
+              <div><span class="eyebrow">ЛИЧНЫЙ ЗАЧЁТ</span><h2>Топ пилотов</h2></div>
+              <button class="text-link" type="button" data-open="drivers">
+                Все <svg class="icon"><use href="#i-arrow"/></svg>
+              </button>
+            </div>
+            <div class="standings-head"><span>ПОЗ.</span><span>ПИЛОТ</span><span>ОЧКИ</span></div>
+            <div class="driver-list" id="homeDrivers"></div>
+            <p class="data-note">Данные после Гран-при Азербайджана · 26.09.2026</p>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section class="screen dashboard" id="events">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <button class="nav-item" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></button>
+        <button class="nav-item active-nav" type="button" data-open="events"><svg class="icon"><use href="#i-calendar"/></svg><span>События</span></button>
+        <button class="nav-item" type="button" data-open="drivers"><svg class="icon"><use href="#i-helmet"/></svg><span>Пилоты</span></button>
+        <button class="nav-item" type="button" data-open="teams"><svg class="icon"><use href="#i-flag"/></svg><span>Команды</span></button>
+        <button class="nav-item" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Настройки</span></button>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="desktop-header">
+        <div><p class="welcome-small">Формула 1 · сезон 2026</p><h1>Все этапы</h1></div>
+        <button class="secondary-button" type="button" data-open="home">На главную</button>
+      </header>
+      <main>
+        <div class="section-title">
+          <div><span class="eyebrow">СЛЕДУЮЩАЯ ГОНКА</span><h2>Ближайший этап</h2></div>
+        </div>
+        <article class="event-card event-card--next event-card--featured">
+          <div class="event-card-top">
+            <span class="event-round">ЭТАП 16</span>
+            <span class="status status--next">Следующий</span>
+          </div>
+          <div class="event-date"><strong>04</strong><span>ОКТ</span></div>
+          <div class="event-copy">
+            <span>Малайзия</span>
+            <h3>Гран-при Бахрейна в Малайзии</h3>
+            <p>Sepang International Circuit</p>
+          </div>
+          <div class="race-time">
+            <svg class="icon"><use href="#i-clock"/></svg>
+            <strong>10:00</strong><span>по Минску</span>
+          </div>
+        </article>
+        <div class="section-title"><div><span class="eyebrow">РЕЗУЛЬТАТЫ</span><h2>Завершённые этапы</h2></div></div>
+        <div class="full-events-grid" id="completedRaces"></div>
+        <p class="data-note data-note--left">Результаты после Гран-при Азербайджана · 26.09.2026</p>
+      </main>
+    </div>
+  </section>
+
+  <!-- Пока данные есть только для Формулы 1 -->
+  <section class="screen dashboard simple-screen" id="discipline">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <button class="nav-item" type="button" data-open="home">
+        <svg class="icon"><use href="#i-home"/></svg><span>На главную</span>
+      </button>
+    </aside>
+    <div class="page">
+      <header class="desktop-header">
+        <div><p class="welcome-small">RaceHub · дисциплины</p><h1 id="disciplineTitle">Дисциплина</h1></div>
+      </header>
+      <main class="empty-state">
+        <svg class="icon"><use href="#i-flag"/></svg>
+        <h2>Раздел готовится</h2>
+        <p>Сейчас в RaceHub доступны данные Формулы 1. Материалы для этой дисциплины появятся позже.</p>
+        <button class="main-button" type="button" data-open="home">Вернуться к Формуле 1</button>
+      </main>
+    </div>
+  </section>
+
+  <section class="screen dashboard" id="drivers">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <button class="nav-item" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></button>
+        <button class="nav-item" type="button" data-open="events"><svg class="icon"><use href="#i-calendar"/></svg><span>События</span></button>
+        <button class="nav-item active-nav" type="button" data-open="drivers"><svg class="icon"><use href="#i-helmet"/></svg><span>Пилоты</span></button>
+        <button class="nav-item" type="button" data-open="teams"><svg class="icon"><use href="#i-flag"/></svg><span>Команды</span></button>
+        <button class="nav-item" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Настройки</span></button>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="desktop-header"><div><p class="welcome-small">Формула 1 · сезон 2026</p><h1>Личный зачёт</h1></div></header>
+      <main class="standings-card standings-card--full">
+        <div class="standings-head"><span>ПОЗ.</span><span>ПИЛОТ</span><span>ОЧКИ</span></div>
+        <div class="driver-list" id="allDrivers"></div>
+        <p class="data-note">Данные после Гран-при Азербайджана · 26.09.2026</p>
+      </main>
+    </div>
+  </section>
+
+  <section class="screen dashboard" id="teams">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <button class="nav-item" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></button>
+        <button class="nav-item" type="button" data-open="events"><svg class="icon"><use href="#i-calendar"/></svg><span>События</span></button>
+        <button class="nav-item" type="button" data-open="drivers"><svg class="icon"><use href="#i-helmet"/></svg><span>Пилоты</span></button>
+        <button class="nav-item active-nav" type="button" data-open="teams"><svg class="icon"><use href="#i-flag"/></svg><span>Команды</span></button>
+        <button class="nav-item" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Настройки</span></button>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="desktop-header"><div><p class="welcome-small">Формула 1 · сезон 2026</p><h1>Команды</h1></div></header>
+      <main>
+        <p class="section-intro">Команды и их пилоты в сезоне Формулы 1 2026.</p>
+        <div class="teams-grid" id="teamsGrid"></div>
+      </main>
+    </div>
+  </section>
+
+  <section class="screen dashboard" id="settings">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <button class="nav-item" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>Главная</span></button>
+        <button class="nav-item" type="button" data-open="events"><svg class="icon"><use href="#i-calendar"/></svg><span>События</span></button>
+        <button class="nav-item" type="button" data-open="drivers"><svg class="icon"><use href="#i-helmet"/></svg><span>Пилоты</span></button>
+        <button class="nav-item" type="button" data-open="teams"><svg class="icon"><use href="#i-flag"/></svg><span>Команды</span></button>
+        <button class="nav-item active-nav" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Настройки</span></button>
+      </nav>
+    </aside>
+    <div class="page">
+      <header class="desktop-header"><div><p class="welcome-small">RaceHub</p><h1>Настройки</h1></div></header>
+      <main class="settings-grid">
+        <section class="settings-box">
+          <h2>Аккаунт</h2>
+          <button class="setting-row" type="button" data-open="profile"><svg class="icon"><use href="#i-user"/></svg><span><strong>Личные данные</strong><small>Имя, email и профиль</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-lock"/></svg><span><strong>Безопасность</strong><small>Пароль и авторизация</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-bell"/></svg><span><strong>Уведомления</strong><small>Настройка оповещений</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-shield"/></svg><span><strong>Приватность</strong><small>Управление данными</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+        </section>
+
+        <section class="settings-box">
+          <h2>Приложение</h2>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-sun"/></svg><span><strong>Тема оформления</strong><small>Тёмная</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-globe"/></svg><span><strong>Язык</strong><small>Русский</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-clock"/></svg><span><strong>Единицы измерения</strong><small>Км/ч</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-database"/></svg><span><strong>Кэш и данные</strong><small>Управление хранилищем</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+        </section>
+
+        <section class="settings-box">
+          <h2>Поддержка</h2>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-help"/></svg><span><strong>Помощь и FAQ</strong><small>Часто задаваемые вопросы</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-mail"/></svg><span><strong>Написать разработчикам</strong><small>Обратная связь</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+          <button class="setting-row" type="button"><svg class="icon"><use href="#i-info"/></svg><span><strong>О приложении</strong><small>RaceHub v1.0.0</small></span><svg class="icon"><use href="#i-chevron"/></svg></button>
+        </section>
+
+        <section class="danger-box">
+          <h2>Выход</h2>
+          <p>Завершить текущий сеанс</p>
+          <button class="logout" type="button" data-open="login">Выйти из аккаунта</button>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="screen dashboard simple-screen" id="profile">
+    <aside class="sidebar">
+      <img class="brand-image" src="assets/logotype.png" alt="RaceHub">
+      <button class="nav-item" type="button" data-open="home"><svg class="icon"><use href="#i-home"/></svg><span>На главную</span></button>
+    </aside>
+    <div class="page">
+      <header class="desktop-header">
+        <div><p class="welcome-small">Личный кабинет</p><h1>Профиль</h1></div>
+        <button class="secondary-button" type="button" data-open="settings"><svg class="icon"><use href="#i-settings"/></svg>Настройки</button>
+      </header>
+      <section class="profile-card">
+        <div class="big-avatar">А</div>
+        <h2>Вольфович Арсений</h2>
+        <p>arseniy.volfovich@mail.com</p>
+        <button class="main-button" type="button">Редактировать профиль</button>
+      </section>
+    </div>
+  </section>
+
+  <!-- Нижняя навигация доступна на смартфонах и планшетах -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Основная навигация" hidden>
+    <button type="button" data-open="home">
+      <svg class="icon" aria-hidden="true"><use href="#i-home"/></svg>
+      <span>Главная</span>
+    </button>
+    <button type="button" data-open="events">
+      <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+      <span>События</span>
+    </button>
+    <button type="button" data-open="drivers">
+      <svg class="icon" aria-hidden="true"><use href="#i-helmet"/></svg>
+      <span>Пилоты</span>
+    </button>
+    <button type="button" data-open="teams">
+      <svg class="icon" aria-hidden="true"><use href="#i-flag"/></svg>
+      <span>Команды</span>
+    </button>
+    <button type="button" data-open="settings">
+      <svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg>
+      <span>Настройки</span>
+    </button>
+  </nav>
+
+  <template id="footerTemplate">
+    <footer class="app-footer">
+      <p>RaceHub · сезон 2026</p>
+      <p>Время гонок — по Минску. Результаты — после этапа в Азербайджане.</p>
+    </footer>
+  </template>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
